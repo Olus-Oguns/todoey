@@ -1,0 +1,18 @@
+# Python/Flask
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+
+# React
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# MongoDB
+mongodb-data/
+mongodb-logs/
+
+# Misc
+*.log
+.DS_Store
