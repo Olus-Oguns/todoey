@@ -8,13 +8,8 @@ app = Flask(__name__)
 api = Api(app)
 CORS(app, resources={r"/tasks*": {"origins": "http://localhost:3000"}})
 
-client = MongoClient(
-    "mongodb://Olumide:todoey@fyp-shard-00-00.6k7bbzm.mongodb.net:27017,"
-    "fyp-shard-00-01.6k7bbzm.mongodb.net:27017,"
-    "fyp-shard-00-02.6k7bbzm.mongodb.net:27017/"
-    "?ssl=true&replicaSet=atlas-xyz-shard-0&authSource=admin&retryWrites=true&w=majority"
-)
-
+# Atlas connection string
+client = MongoClient('mongodb+srv://Todoey_user:oluswas8149@todoey.nsgwcna.mongodb.net/?retryWrites=true&w=majority')
 db = client['todoey_db']
 tasks = db['tasks']
 
