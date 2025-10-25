@@ -3,13 +3,18 @@ from flask_restful import Resource, Api
 from flask_cors import CORS
 from pymongo import MongoClient
 import uuid
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 api = Api(app)
 CORS(app, resources={r"/tasks*": {"origins": "http://localhost:3000"}})
 
-# Atlas connection string
-client = MongoClient('mongodb+srv://Todoey_user:oluswas8149@todoey.nsgwcna.mongodb.net/?retryWrites=true&w=majority')
+# Connect to MongoDB Atlas using environment variable
+client = MongoClient(os.getenv('MONGO_URI'))
 db = client['todoey_db']
 tasks = db['tasks']
 
